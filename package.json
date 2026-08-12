@@ -1,0 +1,75 @@
+{
+  "name": "@dsh-external/dsh-better-sidebar-plugin-office",
+  "version": "0.1.0",
+  "description": "DSH web plugin: Office file previewers (.docx/.xlsx/.pptx) for the better-sidebar editor. Registers the docx/xlsx/pptx file viewers through ctx.betterSidebar.registerFileViewer, keeping the heavy Office render libraries (docx-preview / Univer / SheetJS / pptx-renderer) out of the better-sidebar bundle.",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "main": "./lib/index.js",
+  "types": "./lib/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "import": "./lib/index.js"
+    },
+    "./client": "./lib/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/",
+    "cordis.patch.yml"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsdown --config tsdown.config.ts && tsc -p tsconfig.build.json",
+    "bundle:client": "tsdown --config tsdown.config.ts",
+    "watch": "tsdown --config tsdown.config.ts --watch"
+  },
+  "dependencies": {
+    "@aiden0z/pptx-renderer": "^1.2.4",
+    "@univerjs/preset-sheets-core": "^0.25.1",
+    "@univerjs/presets": "^0.25.1",
+    "docx-preview": "^0.4.0",
+    "xlsx": "^0.18.5"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "^0.0.1",
+    "cordis": "^4.0.0-rc.7",
+    "dsh-better-sidebar": "^0.5.0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-runtime": { "optional": true },
+    "dsh-better-sidebar": { "optional": true },
+    "react": { "optional": true }
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh-client-runtime": "link:C:/Users/Administrator/.dsh/source/current/packages/client/runtime",
+    "@types/node": "^24.0.0",
+    "@types/react": "~18.3.1",
+    "@types/react-dom": "~18.3.1",
+    "cordis": "^4.0.0-rc.7",
+    "dsh-better-sidebar": "link:D:/Projects/deepseek-harness/DSH-better-sidebar",
+    "react": "^18.2.0",
+    "react-dom": "18.2.0",
+    "tsdown": "^0.22.2",
+    "typescript": "^5.6.0",
+    "vitest": "^4.1.8"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

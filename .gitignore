@@ -1,0 +1,11 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+coverage/
+.tmp/
+# Prebuilt lib/ is committed (prebuilt strategy), but sourcemaps are
+# dev-only debugging aids and would bloat the repo (~33MB for the bundle).
+lib/*.map

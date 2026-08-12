@@ -1,0 +1,209 @@
+/* Office preview styles (extracted from dsh-better-sidebar's sidebar.module.css
+   when the office viewers moved into this plugin). The shared placeholder /
+   binary-fallback / download-link affordances are scoped here too so the
+   plugin is self-contained. */
+
+/* Loading / empty state shared by the docx / xlsx / pptx views. */
+.editorPlaceholder {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font: var(--dsw-font-xxs-12);
+  color: var(--dsw-alias-label-tertiary);
+  padding: 16px;
+  text-align: center;
+}
+
+/* Error / download-only fallback: a centered notice plus a download link —
+   the user always gets the file. */
+.editorBinary {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 16px;
+  text-align: center;
+}
+
+.editorBinaryNotice {
+  font: var(--dsw-font-xxs-12);
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.editorDownloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 6px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-primary);
+  font: var(--dsw-font-xxs-strong-12);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background var(--ds-transition-duration-slow) var(--ds-ease-in-out),
+    border-color var(--ds-transition-duration-slow) var(--ds-ease-in-out);
+}
+
+.editorDownloadLink:hover {
+  background: var(--dsw-alias-interactive-bg-hover);
+  border-color: var(--dsw-alias-border-l2);
+}
+
+.editorError {
+  padding: 12px 16px;
+  font: var(--dsw-font-xxs-12);
+  color: var(--dsw-alias-state-error-primary);
+}
+
+/* Word preview: the document scrolls independently while the zoom control
+   stays pinned to the bottom edge. */
+.editorDocx {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--dsw-alias-bg-base);
+}
+
+.editorDocxViewport {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  background: var(--dsw-alias-bg-base);
+}
+
+/* docx-preview renders into a wrapper div with .docx className; the host
+   above scrolls while the wrapper holds the page flow. */
+.editorDocxWrap {
+  flex: none;
+  padding: 16px;
+}
+
+.editorDocxZoom {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 4px 10px;
+  border-top: 1px solid var(--dsw-alias-border-l1);
+  background: var(--dsw-alias-bg-layer-1);
+}
+
+.editorDocxZoomHint,
+.editorDocxZoomValue {
+  flex: none;
+  font: var(--dsw-font-xxxs-11);
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.editorDocxZoomValue {
+  width: 36px;
+  text-align: right;
+}
+
+.editorDocxZoomRange {
+  flex: 1;
+  min-width: 72px;
+  accent-color: var(--dsw-alias-brand-primary);
+  cursor: pointer;
+}
+
+/* Excel preview: the Univer canvas fills the pane; the overlay covers it
+   while loading / on error. */
+.editorXlsx {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  background: var(--dsw-alias-bg-base);
+}
+
+.editorUniverHost {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.editorOfficeOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  background: var(--dsw-alias-bg-base);
+}
+
+/* PPTX preview: a pinned toolbar over a scrolling slide stage. */
+.editorPptx {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--dsw-alias-bg-base);
+}
+
+.editorPptxToolbar {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 6px 8px;
+  border-bottom: 1px solid var(--dsw-alias-border-l1);
+}
+
+.editorPptxToolbar .editorDownloadLink {
+  margin-left: auto;
+}
+
+.editorPptxButton {
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--dsw-alias-border-l2);
+  border-radius: 6px;
+  background: var(--dsw-alias-bg-layer-2);
+  color: var(--dsw-alias-label-secondary);
+  font: var(--dsw-font-xxs-strong-12);
+  cursor: pointer;
+}
+
+.editorPptxButton:hover:not(:disabled) {
+  background: var(--dsw-alias-interactive-bg-hover);
+  color: var(--dsw-alias-label-primary);
+}
+
+.editorPptxButton:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.editorPptxPosition {
+  min-width: 64px;
+  text-align: center;
+  font: var(--dsw-font-xxs-12);
+  color: var(--dsw-alias-label-tertiary);
+}
+
+.editorPptxStage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.editorPptxHost {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+}
