@@ -1,5 +1,5 @@
 /**
- * Client half of @dsh-external/dsh-better-sidebar-plugin-office: registers
+ * Client half of @huanlin/dsh-plugin-better-sidebar-plugin-office: registers
  * the three Office file viewers (docx / xlsx / pptx) through better-sidebar's
  * `ctx.betterSidebar.registerFileViewer`. The descriptors are identical in
  * shape to the built-ins they replace (same viewer ids, exts, mediaUrl

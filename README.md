@@ -40,7 +40,7 @@ pnpm run build       # tsdown 双产物（lib/index.js + lib/client.js）
 dsh plugin --profile web add "link:D:/Projects/deepseek-harness/dsh-better-sidebar-plugin-office"
 
 # 或 github: 引用（预构建 lib/ 入库，开箱即用）
-dsh plugin --profile web add "github:dsh-external/dsh-better-sidebar-plugin-office"
+dsh plugin --profile web add "github:huanlinoto/dsh-plugin-better-sidebar-plugin-office"
 ```
 
 安装后重启 `dsh web` 进程并浏览器硬刷新（`Ctrl+Shift+R`）。
@@ -56,7 +56,7 @@ dsh plugin --profile web add "github:dsh-external/dsh-better-sidebar-plugin-offi
 |--------|------|------|
 | 类型门禁 | `pnpm run typecheck` | 0 错误 |
 | 单元测试 | `pnpm test` | 全部通过 |
-| 构建 | `pnpm run build` | `lib/client.js` 生成，`window.__ModuleLoader__.load({ id: '@dsh-external/dsh-better-sidebar-plugin-office', ... })` 包裹 |
+| 构建 | `pnpm run build` | `lib/client.js` 生成，`window.__ModuleLoader__.load({ id: '@huanlin/dsh-plugin-better-sidebar-plugin-office', ... })` 包裹 |
 | bundle 纯度 | 产物中搜索 `node:` 或 `require("fs")` | 不应出现 Node builtin 引用 |
-| profile 可见 | `Test-Path ~/.dsh/profiles/web/node_modules/@dsh-external/dsh-better-sidebar-plugin-office/lib/client.js` | True |
+| profile 可见 | `Test-Path ~/.dsh/profiles/web/node_modules/@huanlin/dsh-plugin-better-sidebar-plugin-office/lib/client.js` | True |
 | 插件加载 | 重启 `dsh web` + 硬刷新后侧边栏打开 Office 文件 | 预览正常渲染 |

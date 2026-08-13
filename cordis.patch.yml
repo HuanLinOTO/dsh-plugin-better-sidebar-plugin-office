@@ -1,8 +1,8 @@
 # dsh-better-sidebar-plugin-office bundle layer: inserts the plugin row.
-# Loaded by `dsh plugin --profile <name> add @dsh-external/dsh-better-sidebar-plugin-office`.
+# Loaded by `dsh plugin --profile <name> add @huanlin/dsh-plugin-better-sidebar-plugin-office`.
 # The `name` is the package entry; the Loader resolves it from profile node_modules.
 # The office plugin is client-only: its browser half registers the docx/xlsx/pptx
 # file viewers through better-sidebar's `ctx.betterSidebar.registerFileViewer`.
 - insert:
     - id: dsh-better-sidebar-plugin-office
-      name: '@dsh-external/dsh-better-sidebar-plugin-office'
+      name: '@huanlin/dsh-plugin-better-sidebar-plugin-office'
