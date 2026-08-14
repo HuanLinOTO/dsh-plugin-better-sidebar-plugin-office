@@ -2,6 +2,8 @@
 
 # dsh-better-sidebar-plugin-office
 
+[![npm version](https://img.shields.io/npm/v/@huanlin/dsh-plugin-better-sidebar-plugin-office)](https://www.npmjs.com/package/@huanlin/dsh-plugin-better-sidebar-plugin-office)
+
 DSH web 插件：为 better-sidebar 的编辑器提供 Office 三件套文件预览（`.docx` / `.xlsx` / `.pptx`）。
 
 ## 背景
@@ -38,11 +40,11 @@ pnpm run build       # tsdown 双产物（lib/index.js + lib/client.js）
 ## 安装（profile）
 
 ```powershell
+# 从 npm 安装（推荐）：
+dsh plugin --profile web add @huanlin/dsh-plugin-better-sidebar-plugin-office
+
 # 本地开发（link: 热更新）
 dsh plugin --profile web add "link:D:/Projects/deepseek-harness/dsh-better-sidebar-plugin-office"
-
-# 或 github: 引用（预构建 lib/ 入库，开箱即用）
-dsh plugin --profile web add "github:huanlinoto/dsh-plugin-better-sidebar-plugin-office"
 ```
 
 安装后重启 `dsh web` 进程并浏览器硬刷新（`Ctrl+Shift+R`）。
