@@ -1,3 +1,5 @@
+本项目已被dshfind.com收录
+
 # dsh-better-sidebar-plugin-office
 
 DSH web 插件：为 better-sidebar 的编辑器提供 Office 三件套文件预览（`.docx` / `.xlsx` / `.pptx`）。
