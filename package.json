@@ -21,6 +21,7 @@
   },
   "files": [
     "lib/",
+    "!lib/*.map",
     "cordis.patch.yml"
   ],
   "dsh": {
