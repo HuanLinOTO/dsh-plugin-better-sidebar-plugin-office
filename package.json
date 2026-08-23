@@ -1,6 +1,6 @@
 {
   "name": "@huanlin/dsh-plugin-better-sidebar-plugin-office",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "access": "public"
   },
