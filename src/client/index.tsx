@@ -94,11 +94,27 @@ export function apply(ctx: ClientContext): void {
   // with the store so the patched lookup — and this plugin's own t(),
   // which mirrors the override-aware chain — can render the selected
   // override language. Absent the store, the zh/en chain runs unchanged.
-  const betterLocale = ctx.get('betterLocale') as BetterLocaleStore | undefined
-  attachBetterLocale(betterLocale)
-  if (betterLocale !== undefined) {
-    ctx.effect(() => betterLocale.register(NS, dicts), 'dsh-better-sidebar-plugin-office: better-locale override dicts')
-  }
+  // Activation-order-safe: re-check ctx.get('betterLocale') on every locale
+  // revision bump (better-locale bumps on activation + override switch).
+  ctx.effect(() => {
+    let dispose: (() => void) | undefined
+    const sync = (): void => {
+      dispose?.()
+      dispose = undefined
+      const store = ctx.get('betterLocale') as BetterLocaleStore | undefined
+      attachBetterLocale(store)
+      if (store !== undefined) {
+        dispose = store.register(NS, dicts)
+      }
+    }
+    sync()
+    const unsubscribe = locale.subscribe(sync)
+    return () => {
+      unsubscribe()
+      dispose?.()
+      attachBetterLocale(undefined)
+    }
+  }, 'dsh-better-sidebar-plugin-office: better-locale lazy integration')
 
   const betterSidebar = (ctx as unknown as {
     betterSidebar?: { registerFileViewer(descriptor: FileViewerDescriptor): () => void }

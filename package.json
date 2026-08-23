@@ -1,10 +1,12 @@
 {
   "name": "@huanlin/dsh-plugin-better-sidebar-plugin-office",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publishConfig": {
     "access": "public"
   },
-  "keywords": ["dsh-plugin"],
+  "keywords": [
+    "dsh-plugin"
+  ],
   "description": "DSH web plugin: Office file previewers (.docx/.xlsx/.pptx) for the better-sidebar editor. Registers the docx/xlsx/pptx file viewers through ctx.betterSidebar.registerFileViewer, keeping the heavy Office render libraries (docx-preview / Univer / SheetJS / pptx-renderer) out of the better-sidebar bundle.",
   "type": "module",
   "license": "AGPL-3.0",
@@ -56,9 +58,15 @@
     "react": "^18.2.0"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-client-runtime": { "optional": true },
-    "dsh-better-sidebar": { "optional": true },
-    "react": { "optional": true }
+    "@deepseek-ai/dsh-client-runtime": {
+      "optional": true
+    },
+    "dsh-better-sidebar": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@deepseek-ai/dsh-client-runtime": "^0.0.1-rc.1",
