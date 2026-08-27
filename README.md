@@ -28,6 +28,10 @@ better-sidebar 曾内置这三个 viewer，但 docx-preview / Univer（+ SheetJS
 
 需要 better-sidebar `>= 0.6.0`（已移除内置 office viewer 的版本），否则会与内置 `docx/xlsx/pptx` 注册冲突（`already registered`）。
 
+## DSH 宿主版本
+
+需要 DSH `>= 0.1.2-alpha.1`：插件自 v0.2.0 起完成 `dsh-client-runtime` 拆分迁移——`ClientContext` 类型改用 `@deepseek-ai/cordis` 的 `Context`（better-sidebar 0.17+ 对该模块声明了 `ctx.betterSidebar` augmentation），不再依赖任何已删除的 `@deepseek-ai/dsh-client-*` client 包（client bundle 运行时只 require react 系）。
+
 ## 开发
 
 ```powershell
@@ -36,6 +40,8 @@ pnpm run typecheck   # 类型门禁（需先构建 DSH-better-sidebar 的 lib/ty
 pnpm test            # vitest（xlsx→Univer 转换 + 注册描述符）
 pnpm run build       # tsdown 双产物（lib/index.js + lib/client.js）
 ```
+
+> `@deepseek-ai/*` alpha 版本未发布到 npm，devDeps 不声明它们：类型经 `tsconfig.json` 的 `paths` 指向本地 DSH checkout（`~/.dsh/source/current`，与 dsh-interpreters / dsh-mineru 同法）；`.npmrc` / `pnpm-workspace.yaml` 设 `auto-install-peers=false`，防止 pnpm 自动安装可选 peer 时拉取 404。若改用 junction（`node_modules/@deepseek-ai/cordis` → `~/.dsh/source/current/vendor/cordis`），请在 `pnpm install` 之后创建。
 
 > `tsdown.config.ts` 含 `jszip` / `xlsx` 的 browser-entry alias（SheetJS/JSZip 在 CJS 降级后残留 Node builtin 引用）与 `import.meta.resolve` 空定义（pptx-renderer 的 PDF.js 探测）。改动这些库版本时需一并验证 client bundle 不含 Node builtin。
 

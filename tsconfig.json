@@ -14,7 +14,11 @@
     "verbatimModuleSyntax": true,
     "allowImportingTsExtensions": true,
     "noEmit": true,
-    "types": ["node"]
+    "types": ["node"],
+    "paths": {
+      "@deepseek-ai/cordis": ["C:/Users/Administrator/.dsh/source/current/vendor/cordis/lib/types/index.d.ts"],
+      "@deepseek-ai/cosmokit": ["C:/Users/Administrator/.dsh/source/current/vendor/cosmokit/lib/types/index.d.ts"]
+    }
   },
   "include": ["src", "tests", "tsdown.config.ts", "vitest.config.ts"]
 }
