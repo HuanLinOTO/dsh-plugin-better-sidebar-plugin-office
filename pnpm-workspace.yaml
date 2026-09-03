@@ -1,2 +1,4 @@
 allowBuilds:
   protobufjs: true
+autoInstallPeers: false
+strictPeerDependencies: false

@@ -1,6 +1,6 @@
 {
   "name": "@huanlin/dsh-plugin-better-sidebar-plugin-office",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "publishConfig": {
     "access": "public"
   },
@@ -31,9 +31,7 @@
       "patch": "./cordis.patch.yml"
     },
     "client": {
-      "inject": [
-        "@deepseek-ai/dsh-client-runtime"
-      ],
+      "inject": [],
       "platform": "web"
     }
   },
@@ -49,16 +47,16 @@
     "@univerjs/preset-sheets-core": "^0.25.1",
     "@univerjs/presets": "^0.25.1",
     "docx-preview": "^0.4.0",
+    "rxjs": "^7.8.2",
     "xlsx": "^0.18.5"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-client-runtime": "^0.0.1-rc.1",
-    "cordis": "^4.0.0-rc.7",
-    "dsh-better-sidebar": "^0.6.0",
+    "@deepseek-ai/cordis": "^4.0.1",
+    "dsh-better-sidebar": "^0.17.0",
     "react": "^18.2.0"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-client-runtime": {
+    "@deepseek-ai/cordis": {
       "optional": true
     },
     "dsh-better-sidebar": {
@@ -69,11 +67,9 @@
     }
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-client-runtime": "^0.0.1-rc.1",
     "@types/node": "^24.0.0",
     "@types/react": "~18.3.1",
     "@types/react-dom": "~18.3.1",
-    "cordis": "^4.0.0-rc.7",
     "dsh-better-sidebar": "link:D:/Projects/deepseek-harness/DSH-better-sidebar",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
